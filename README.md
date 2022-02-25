@@ -1,6 +1,7 @@
-# Bitrix24 in Docker
+# Bitrix24 in Docker in Debian 10 and 11.
+Bitrix24 in Docker with SSMTP, SPHINX, MYSQL, NGINX, PHP74.
 
-### INSTALL Bitrix24 in Docker with SMTP, SPHINX, MYSQL, NGINX, PHP74  on Debian 10/11.
+### INSTALL:
 ```
 curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/install.sh | sudo bash
 ```
