@@ -13,6 +13,7 @@ RUN apt-get update \
     php7.4-imagick \
     php7.4-opcache \
     php7.4-zip \
+    php7.4-ldap \
     ssmtp \
     php-pear php7.4-dev libmcrypt-dev gcc make autoconf libc-dev pkg-config \
     && pecl install mcrypt-1.0.4 \
