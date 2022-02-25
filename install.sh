@@ -116,14 +116,16 @@ EOF
 
 cat <<EOF
 
-Bitrix24 MySQL server information:
-  host     = 127.0.0.1
-  port     = 3306
-  user     = root
-  password = /root/.my.cnf 
-  config   = ${BITRIX_MAIN_DIR}/bitrix24-docker/mysql/my.cnf
-  binlogs  = ${BITRIX_LOG_DIR}/mysql
-  data     = ${BITRIX_MAIN_DIR}/mysql
+Bitrix24 MySQL server setup information:
+
+  host       = db
+  port       = 3306
+  
+  user       = bitrix
+  password   = ${MYSQL_BITRIX_PASSWORD}
+  
+  super_user = root
+  password   = ${MYSQL_ROOT_PASSWORD}
 
 start bitrix24: 
   cd ${BITRIX_MAIN_DIR}/bitrix24-docker; docker-compose build; docker-compose up -d;
