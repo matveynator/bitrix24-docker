@@ -11,11 +11,12 @@ Bitrix24 не используя рекомендованные и тормоз�
 curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/install.sh | sudo bash
 ```
 
-### http (9080)
-по этому порту 9080 будет доступен инсталлятор bitrix
+### http (80)
+по этому порту (80) будет доступен инсталлятор bitrix
 ```
-  http://IP:9080 
-  http://localhost:9080
+  http://IP 
+  http://domain.ru
+  http://localhost
 ```
 
 ### данные mysql:
