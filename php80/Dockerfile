@@ -22,9 +22,9 @@ RUN apt-get update \
 COPY ./php.ini /etc/php/8.0/fpm/conf.d/90-php.ini
 COPY ./php.ini /etc/php/8.0/cli/conf.d/90-php.ini
 
-RUN echo "root=root@${HOSTNAME}" > /etc/ssmtp/ssmtp.conf
-RUN echo "mailhub=${SMTP_SMARTHOST}" >> /etc/ssmtp/ssmtp.conf
-RUN echo "hostname=${HOSTNAME}" >> /etc/ssmtp/ssmtp.conf
+RUN echo "root=root@localhost" > /etc/ssmtp/ssmtp.conf
+RUN echo "mailhub=10.100.0.1" >> /etc/ssmtp/ssmtp.conf
+RUN echo "hostname=localhost" >> /etc/ssmtp/ssmtp.conf
 RUN echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf
 
 RUN usermod -u 1000 www-data
