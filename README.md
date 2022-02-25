@@ -42,8 +42,15 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
   port: 9306
 ```
 
- 
-Остальные сисадминские скрипты можно найти тут: https://github.com/matveynator/sysadminscripts
 
-А записную книжку сисадмина (с рецептами) можно прочитать здесь: https://github.com/matveynator/sysadminscripts/wiki
+### ssl сертификаты (https://github.com/matveynator/sysadminscripts/wiki/Free-SSL-Certs): 
+
+```
+curl https://get.acme.sh | sh
+/root/.acme.sh/acme.sh --set-default-ca  --server  zerossl
+/root/.acme.sh/acme.sh --register-account -m security@domain.com
+/root/.acme.sh/acme.sh -w /var/lib/bitrix24/www --issue -d domain.com -d www.domain.com
+```
+
+Остальные сисадминские скрипты и записки (wiki) можно найти тут: https://github.com/matveynator/sysadminscripts
 
