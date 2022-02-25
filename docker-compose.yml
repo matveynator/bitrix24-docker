@@ -84,6 +84,7 @@ services:
             - /var/lib/bitrix24/www:/var/www/bitrix
             - /var/lib/bitrix24/sphinxsearch:/var/lib/sphinxsearch
             - /etc/localtime:/etc/localtime/:ro
+            - /root/.acme.sh:/root/.acme.sh:ro
         networks:
             - bitrix
 
