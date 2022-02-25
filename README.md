@@ -17,6 +17,7 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 ```
 
 ### данные mysql:
+данные храняться в /var/lib/bitrix24/mysql
 ```
   host: db
   port: 3306
