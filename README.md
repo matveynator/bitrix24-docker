@@ -15,8 +15,8 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 по этому порту (80) будет доступен инсталлятор bitrix
 ```
   http://IP 
-  http://domain.ru
   http://localhost
+  http://domain.com
 ```
 
 ### данные mysql:
