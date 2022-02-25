@@ -52,6 +52,7 @@ mkdir -p ${BITRIX_LOG_DIR}/memcached
 mkdir -p ${BITRIX_LOG_DIR}/sphinxsearch
 
 mkdir -p ${BITRIX_MAIN_DIR}/www
+mkdir -p ${BITRIX_MAIN_DIR}/www/bitrix
 mkdir -p ${BITRIX_MAIN_DIR}/mysql
 mkdir -p ${BITRIX_MAIN_DIR}/memcached
 mkdir -p ${BITRIX_MAIN_DIR}/sphinxsearch
@@ -139,4 +140,41 @@ show bitrix24 logs:
 http bitrix24 (add nginx proxy with ssl localy): 
   http://${HOSTNAME}:9080
 
+EOF
+
+cat > /var/lib/bitrix24/www/bitrix/.settings_extra.php <<EOF
+<?php
+return array (
+'cache' => array(
+      'value' => array(
+          'type' => array(
+              'class_name' => '\\Bitrix\\Main\\Data\\CacheEngineMemcache',
+              'extension' => 'memcache'
+          ),
+          'memcache' => array(
+              'host' => 'memcached',
+              'port' => '11211',
+          ),
+          'sid' => $_SERVER["DOCUMENT_ROOT"]."#01"
+      ),
+  ),
+  'connections' =>
+  array (
+    'value' =>
+    array (
+      'default' =>
+      array (
+        'className' => '\\Bitrix\\Main\\DB\\MysqliConnection',
+        'host' => 'db',
+        'database' => 'bitrix',
+        'login' => 'bitrix',
+        'password' => "${MYSQL_BITRIX_PASSWORD}",
+        'options' => 2.0,
+      ),
+    ),
+    'readonly' => true,
+  ),
+
+);
+?>
 EOF
