@@ -4,6 +4,8 @@ Bitrix24 in Docker with SSMTP, SPHINX, MYSQL, NGINX, PHP74.
 Bitrix24 не используя рекомендованные и тормозные VMWare виртуальные машины, так как проект CENTOS 
 прикратил свое существование и установка на чистую CENTOS не представляется возможным.
 
+<img src="https://repository-images.githubusercontent.com/463467104/1dee8021-e984-4165-950b-5b44fd789504" width="50%">
+
 ### INSTALL:
 ```
 curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/install.sh | sudo bash
