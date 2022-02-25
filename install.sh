@@ -103,6 +103,9 @@ Bitrix24 MySQL server information:
   binlogs  = ${BITRIX_LOG_DIR}/mysql
   data     = ${BITRIX_MAIN_DIR}/mysql
 
+push pub/sub KEY:
+   ${PUSH_SECURITY_KEY}
+
 start bitrix24: 
   cd ${BITRIX_MAIN_DIR}/bitrix24-docker; docker-compose build; docker-compose up -d;
 
@@ -147,6 +150,8 @@ http bitrix24 (запуск инсталлятора битрикс24):
   /var/lib/bitrix24/bitrix24-docker/.env
   /var/lib/bitrix24/bitrix24-docker/docker-compose.yml
   
+push pub/sub KEY:
+   ${PUSH_SECURITY_KEY}
 EOF
 
 cat > /var/lib/bitrix24/www/bitrix/.settings_extra.php <<EOF
