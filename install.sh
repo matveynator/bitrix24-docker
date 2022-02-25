@@ -97,6 +97,9 @@ stop bitrix24:
 show bitrix24 logs:
   cd ${BITRIX_MAIN_DIR}/bitrix24-docker; docker-compose logs --follow;
 
+http bitrix24 (add nginx proxy with ssl localy): 
+  http://{$HOSTNAME}:9080
+
 EOF
 
 
@@ -119,5 +122,8 @@ stop bitrix24:
 
 show bitrix24 logs:
   cd ${BITRIX_MAIN_DIR}/bitrix24-docker; docker-compose logs --follow;
+
+http bitrix24 (add nginx proxy with ssl localy): 
+  http://{$HOSTNAME}:9080
 
 EOF
