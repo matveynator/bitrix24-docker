@@ -109,8 +109,8 @@ stop bitrix24:
 show bitrix24 logs:
   cd ${BITRIX_MAIN_DIR}/bitrix24-docker; docker-compose logs --follow;
 
-http bitrix24 (add nginx proxy with ssl localy): 
-  http://${HOSTNAME}:9080
+http bitrix24 (битрикс): 
+  http://${HOSTNAME}
 
 EOF
 
@@ -137,8 +137,8 @@ stop bitrix24:
 show bitrix24 logs:
   cd ${BITRIX_MAIN_DIR}/bitrix24-docker; docker-compose logs --follow;
 
-http bitrix24 (add nginx proxy with ssl localy): 
-  http://${HOSTNAME}:9080
+http bitrix24 (запуск инсталлятора битрикс24): 
+  http://${HOSTNAME}
 
 настройки докер и пароли:
   /var/lib/bitrix24/bitrix24-docker/.env
