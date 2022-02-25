@@ -50,6 +50,11 @@ curl https://get.acme.sh | sh
 /root/.acme.sh/acme.sh --set-default-ca  --server  zerossl
 /root/.acme.sh/acme.sh --register-account -m security@domain.com
 /root/.acme.sh/acme.sh -w /var/lib/bitrix24/www --issue -d domain.com -d www.domain.com
+
+
+#расположение сертификатов для nginx:
+ssl_certificate /root/.acme.sh/domain.com/fullchain.cer;
+ssl_certificate_key /root/.acme.sh/domain.com/domain.com.key;
 ```
 
 Остальные сисадминские скрипты и записки (wiki) можно найти тут: https://github.com/matveynator/sysadminscripts
