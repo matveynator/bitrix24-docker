@@ -1,0 +1,102 @@
+version: '2'
+
+services:
+    php:
+        build: ./php74
+        volumes_from:
+            - source
+        links:
+            - db
+            - memcached
+        networks:
+            - bitrix
+        restart: always
+    web_server:
+        build: ./nginx
+        depends_on:
+            - source
+        volumes_from:
+            - source
+        ports:
+            #- '0.0.0.0:80:80'
+            #- '0.0.0.0:443:443'
+            - '0.0.0.0:9080:80'
+        links:
+            - php
+        networks:
+            - bitrix
+        restart: always
+    db:
+        build: ./mysql
+        depends_on:
+            - source
+        volumes_from:
+            - source
+        ports:
+            - '0.0.0.0:3306:3306'
+        environment:
+            MYSQL_DATABASE: bitrix
+            MYSQL_USER: bitrix
+            MYSQL_PASSWORD: ${MYSQL_BITRIX_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        command: mysqld --sql-mode=""
+        networks:
+            - bitrix
+        restart: unless-stopped
+        cap_add:
+             - SYS_NICE
+    memcached:
+        image: memcached:1.6.12-alpine
+        volumes_from:
+            - source
+        depends_on:
+            - source
+        ports:
+            - '0.0.0.0:11211:11211'
+        networks:
+            - bitrix
+        restart: always
+    sphinx:
+        build: ./sphinx
+        links:
+          - db
+        depends_on:
+          - db
+          - source
+        volumes_from:
+            - source
+        networks:
+            - bitrix
+        ports:
+            - '0.0.0.0:9306:9306'
+            - '0.0.0.0:9312:9312'
+        restart: unless-stopped
+    source:
+        image: alpine:latest
+        volumes:
+            - /var/log/bitrix24/nginx:/var/log/nginx
+            - /var/log/bitrix24/php:/var/log/php
+            - /var/log/bitrix24/db:/var/log/mysql
+            - /var/log/bitrix24/memcached:/var/log/memcached
+            - /var/log/bitrix24/sphinxsearch:/var/log/sphinxsearch
+            - /var/lib/bitrix24/mysql:/var/lib/mysql
+            - /var/lib/bitrix24/memcached:/var/lib/memcached
+            - /var/lib/bitrix24/www:/var/www/bitrix
+            - /var/lib/bitrix24/sphinxsearch:/var/lib/sphinxsearch
+            - /etc/localtime:/etc/localtime/:ro
+        networks:
+            - bitrix
+
+volumes:
+    db:
+        driver: local
+    cache:
+        driver: local
+
+networks:
+    bitrix:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 10.100.0.0/24
