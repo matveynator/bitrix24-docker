@@ -2,7 +2,7 @@
 set -e
 
 apt-get -y update
-apt-get -y install git curl pwgen
+apt-get -y install git curl wget pwgen docker-ce
 
 MYSQL_BITRIX_PASSWORD=`pwgen 1 14`
 MYSQL_ROOT_PASSWORD=`pwgen 1 14`
@@ -17,7 +17,6 @@ mkdir -p /var/lib/bitrix24/www
 mkdir -p /var/lib/bitrix24/mysql
 mkdir -p /var/lib/bitrix24/memcached
 mkdir -p /var/lib/bitrix24/sphinxsearch
-mkdir -p /var/lib/bitrix24/
 
 chmod -R 775 /var/lib/bitrix24/www
 chown -R root:www-data /var/lib/bitrix24/www
@@ -29,7 +28,7 @@ cd /var/lib/bitrix24/;
 git clone https://github.com/matveynator/bitrix24-docker.git;
 cd /var/lib/bitrix24/bitrix24-docker
 
-cat /var/lib/bitrix24/bitrix24-docker/.env <<EOF
+cat > /var/lib/bitrix24/bitrix24-docker/.env <<EOF
 MYSQL_BITRIX_PASSWORD=${MYSQL_BITRIX_PASSWORD}
 MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 SMTP_SMARTHOST=10.100.0.1
