@@ -31,7 +31,9 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 cd /var/lib/bitrix24/bitrix24-docker; docker-compose logs --follow;
 ```
 
-### http bitrix24 (add nginx proxy with ssl localy): 
+### http 
 ```
-  http://IP:9080
+  http://IP:9080 
+  http://localhost:9080
 ```
+по этому порту будет доступен инсталлятор bitrix
