@@ -8,6 +8,8 @@ services:
         links:
             - db
             - memcached
+            - push-server-sub
+            - push-server-pub
         networks:
             - bitrix
         restart: always
@@ -71,6 +73,37 @@ services:
             - '0.0.0.0:9306:9306'
             - '0.0.0.0:9312:9312'
         restart: unless-stopped
+    push-server-sub:
+        image: ikarpovich/bitrix-push-server
+        links:
+          - redis
+        networks:
+          - bitrix
+        environment:
+          - REDIS_HOST=redis
+          - LISTEN_HOSTNAME=0.0.0.0
+          - LISTEN_PORT=80
+          - SECURITY_KEY=${PUSH_SECURITY_KEY}
+          - MODE=sub
+        restart: unless-stopped
+    push-server-pub:
+        image: ikarpovich/bitrix-push-server
+        links:
+          - redis
+        networks:
+          - bitrix
+        environment:
+          - REDIS_HOST=redis
+          - LISTEN_HOSTNAME=0.0.0.0
+          - LISTEN_PORT=80
+          - SECURITY_KEY=${PUSH_SECURITY_KEY}
+          - MODE=pub
+        restart: unless-stopped
+    redis:
+        image: redis
+        networks:
+          - bitrix
+        restart: unless-stopped
     source:
         image: alpine:latest
         volumes:
@@ -101,3 +134,4 @@ networks:
             driver: default
             config:
                 - subnet: 10.100.0.0/24
+
