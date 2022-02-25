@@ -42,9 +42,15 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
   port: 9306
 ```
 
+### push pub/sub node.js server
+используется для audio/video/chat 
+PUSH_SECURITY_KEY генерируется в процессе установки
+```
+Message sender path: http://push-server-pub/bitrix/pub/ 
+Message listener path: http://bitrix24-sub.test/bitrix/subws/ (https:// ws:// wss://)
+```
 
 ### ssl сертификаты (https://github.com/matveynator/sysadminscripts/wiki/Free-SSL-Certs): 
-
 ```
 curl https://get.acme.sh | sh
 /root/.acme.sh/acme.sh --set-default-ca  --server  zerossl
