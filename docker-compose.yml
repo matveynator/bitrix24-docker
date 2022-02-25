@@ -10,6 +10,7 @@ services:
             - memcached
             - push-server-sub
             - push-server-pub
+            - redis
         networks:
             - bitrix
         restart: always
