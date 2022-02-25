@@ -15,7 +15,22 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 
 ### данные mysql:
 ```
-  mysql host: db
-  mysql user: bitrix (пароль сгенерирует инсталлятор в предыдущем шаге)
-  mysql db: bitrix (использовать существующую)
+  host: db
+  port: 3306
+  user: bitrix (пароль сгенерирует инсталлятор в предыдущем шаге)
+  db: bitrix (использовать существующую)
 ```
+
+### memcahed:
+```
+  host: memcached
+  port: 11211
+```
+
+### sphinx search:
+```
+  host: sphinx
+  port: 9306
+```
+
+  
