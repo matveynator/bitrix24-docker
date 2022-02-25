@@ -27,11 +27,19 @@ function cleanup () {
 	fi
 	
 }
-trap 'cleanup' SIGTERM
-trap 'cleanup' EXIT
 
-apt-get -y update
-apt-get -y install git curl wget pwgen docker-ce
+apt-add-repository "deb https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+
+apt-get update
+if [ $? -ne 0 ]; then
+	echo "ERROR: apt update (FAILED)"
+	exit $?
+fi
+apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" -q -y install docker-ce docker-compose git curl wget pwgen 
+if [ $? -ne 0 ]; then
+	echo "ERROR: apt install of docker and utilites (FAILED)"
+	exit $?
+fi
 
 MYSQL_BITRIX_PASSWORD=`pwgen 10 1`
 MYSQL_ROOT_PASSWORD=`pwgen 10 1`
@@ -47,6 +55,9 @@ mkdir -p ${BITRIX_MAIN_DIR}/www
 mkdir -p ${BITRIX_MAIN_DIR}/mysql
 mkdir -p ${BITRIX_MAIN_DIR}/memcached
 mkdir -p ${BITRIX_MAIN_DIR}/sphinxsearch
+
+trap 'cleanup' SIGTERM
+trap 'cleanup' EXIT
 
 chmod -R 775 ${BITRIX_MAIN_DIR}/www
 chown -R root:www-data ${BITRIX_MAIN_DIR}/www
