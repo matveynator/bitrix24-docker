@@ -1,7 +1,7 @@
 # Bitrix24 in Docker in Debian 10 and 11.
 Bitrix24 in Docker with SSMTP, SPHINX, MYSQL, NGINX, PHP74.
 На данный момент (25.02.2022) это единственный и самый перспективный рабочий способ установить 
-Bitrix24 не используя рекомендованные и тормозные VMWare виртуальные машины, так как проект CENTOS 
+bitrix24 не используя vmware виртуальные машины, так как проект CENTOS 
 прикратил свое существование и установка на чистую CENTOS не представляется возможным.
 
 <img src="https://repository-images.githubusercontent.com/463467104/1dee8021-e984-4165-950b-5b44fd789504" width="50%">
