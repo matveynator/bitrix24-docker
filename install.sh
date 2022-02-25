@@ -140,11 +140,16 @@ show bitrix24 logs:
 http bitrix24 (add nginx proxy with ssl localy): 
   http://${HOSTNAME}:9080
 
+настройки докер и пароли:
+  /var/lib/bitrix24/bitrix24-docker/.env
+  /var/lib/bitrix24/bitrix24-docker/docker-compose.yml
+  
 EOF
 
 cat > /var/lib/bitrix24/www/bitrix/.settings_extra.php <<EOF
 <?php
 return array (
+
 'cache' => array(
       'value' => array(
           'type' => array(
@@ -157,22 +162,6 @@ return array (
           ),
           'sid' => $_SERVER["DOCUMENT_ROOT"]."#01"
       ),
-  ),
-  'connections' =>
-  array (
-    'value' =>
-    array (
-      'default' =>
-      array (
-        'className' => '\\Bitrix\\Main\\DB\\MysqliConnection',
-        'host' => 'db',
-        'database' => 'bitrix',
-        'login' => 'bitrix',
-        'password' => "${MYSQL_BITRIX_PASSWORD}",
-        'options' => 2.0,
-      ),
-    ),
-    'readonly' => true,
   ),
 
 );
