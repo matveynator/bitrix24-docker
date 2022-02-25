@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+apt-get -y update
+apt-get -y install git curl pwgen
+
 MYSQL_BITRIX_PASSWORD=`pwgen 1 14`
 MYSQL_ROOT_PASSWORD=`pwgen 1 14`
 HOSTNAME=`cat /etc/hostname`
