@@ -13,6 +13,7 @@ RUN apt-get update \
     php8.0-imagick \
     php8.0-opcache \
     php8.0-zip \
+    php8.0-ldap \
     ssmtp \
     php-pear php8.0-dev libmcrypt-dev gcc make autoconf libc-dev pkg-config \
     && pecl install mcrypt-1.0.4 \
