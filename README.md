@@ -41,4 +41,8 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
   port: 9306
 ```
 
-  
+ 
+Остальные сисадминские скрипты можно найти тут: https://github.com/matveynator/sysadminscripts
+
+А записную книжку сисадмина (с рецептами) можно прочитать здесь: https://github.com/matveynator/sysadminscripts/wiki
+
