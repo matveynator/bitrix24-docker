@@ -10,11 +10,11 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 ```
 
 ### http (9080)
+по этому порту 9080 будет доступен инсталлятор bitrix
 ```
   http://IP:9080 
   http://localhost:9080
 ```
-по этому порту 9080 будет доступен инсталлятор bitrix
 
 ### данные mysql:
 ```
@@ -25,12 +25,14 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 ```
 
 ### memcahed:
+используйте для хранения кэша
 ```
   host: memcached
   port: 11211
 ```
 
 ### sphinx search:
+используйте для ускорения поиска по документам
 ```
   host: sphinx
   port: 9306
