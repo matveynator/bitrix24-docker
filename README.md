@@ -11,4 +11,11 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
   http://IP:9080 
   http://localhost:9080
 ```
-по этому порту будет доступен инсталлятор bitrix
+по этому порту 9080 будет доступен инсталлятор bitrix
+
+данные mysql:
+```
+  mysql host: db
+  mysql user: bitrix (пароль сгенерирует инсталлятор в предыдущем шаге)
+  mysql db: bitrix (использовать существующую)
+```
