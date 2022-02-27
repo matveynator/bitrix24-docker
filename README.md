@@ -4,7 +4,7 @@ Bitrix24 in Docker with SSMTP, SPHINX, MEMCACHED, LDAP, MYSQL, NGINX, PHP74, PUS
 bitrix24 не используя vmware виртуальные машины, так как проект CENTOS прикратил свое 
 существование и установка на чистую CENTOS не представляется возможным.
 
-Протестированно в Linux Debian 10 и 11
+Протестированно в Linux Debian 10 и 11.
 
 <img src="https://repository-images.githubusercontent.com/463467104/1dee8021-e984-4165-950b-5b44fd789504" width="50%">
 
@@ -24,7 +24,7 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 ```
   http://IP 
   http://localhost
-  http://DOMAIN
+  http://domain.com
 ```
 
 ### данные mysql:
