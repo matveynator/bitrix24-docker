@@ -1,4 +1,4 @@
-# Bitrix24 in Docker.
+# Bitrix24 и бругие Bitrix в Docker.
 Bitrix24 in Docker with SSMTP, SPHINX, MEMCACHED, LDAP, MYSQL, NGINX, PHP74, PUSH & PULL.
 На данный момент (25.02.2022) это  можно сказать единственный рабочий способ установить 
 bitrix24 не используя vmware виртуальные машины, так как проект CENTOS прикратил свое 
