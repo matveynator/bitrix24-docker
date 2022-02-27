@@ -67,7 +67,8 @@ PUB host:  http://DOMAIN.COM/push-server-pub/КОМАНДА
 SUB host:   http://DOMAIN.COM/push-server-sub/КОМАНДА
 ```
 
-### ssl сертификаты (https://github.com/matveynator/sysadminscripts/wiki/Free-SSL-Certs): 
+### ssl сертификаты:
+https://github.com/matveynator/sysadminscripts/wiki/Free-SSL-Certs
 ```
 curl https://get.acme.sh | sh
 /root/.acme.sh/acme.sh --set-default-ca  --server  zerossl
@@ -75,7 +76,8 @@ curl https://get.acme.sh | sh
 /root/.acme.sh/acme.sh -w /var/lib/bitrix24/www --issue -d domain.com -d www.domain.com
 ```
 
-### расположение сертификатов для nginx (volume /root/.acme.sh:/root/.acme.sh:ro):
+### расположение сертификатов для nginx:
+volume /root/.acme.sh:/root/.acme.sh:ro
 ```
 ssl_certificate /root/.acme.sh/domain.com/fullchain.cer;
 ssl_certificate_key /root/.acme.sh/domain.com/domain.com.key;
