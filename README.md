@@ -58,11 +58,11 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 PUB host: http://push-server-pub
 SUB host: http://push-server-sub
 
-Путь для публикации команд сервером:   http://push-server-pub/bitrix/pub
-Путь для чтения команд сервером:     http://push-server-sub/bitrix/subws
+Путь для публикации команд сервером:   http://push-server-pub/АДРЕС
+Путь для чтения команд сервером:     http://push-server-sub/АДРЕС 
 
-Путь для публикации команд клиентом:   http://DOMAIN.COM/push-server-pub/bitrix/pub
-Путь для чтения команд клиентом:   http://DOMAIN.COM/push-server-pub/bitrix/subws
+Путь для публикации команд клиентом:   http://DOMAIN.COM/push-server-pub/АДРЕС
+Путь для чтения команд клиентом:   http://DOMAIN.COM/push-server-sub/АДРЕС
 ```
 
 ### ssl сертификаты (https://github.com/matveynator/sysadminscripts/wiki/Free-SSL-Certs): 
