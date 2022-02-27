@@ -47,8 +47,14 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 код-подпись для взаимодействия с сервером (PUSH_SECURITY_KEY) генерируется в процессе установки.
 Необходима донастройка nginx https://training.bitrix24.com/support/training/course/?COURSE_ID=178&LESSON_ID=21618
 ```
-Путь для публикации команд сервером: http://push-server-pub/bitrix/pub/ 
-Путь для чтения команд: http://domain.com/bitrix/subws/ (https:// ws:// wss://)
+PUB host: http://push-server-pub
+SUB host: http://push-server-sub
+
+Путь для публикации команд сервером:   http://push-server-pub/bitrix/pub
+Путь для чтения команд сервером:     http://push-server-sub/bitrix/subws
+
+Путь для публикации команд клиентом:   http://DOMAIN.COM/push-server-pub/bitrix/pub
+Путь для чтения команд клиентом:   http://DOMAIN.COM/push-server-pub/bitrix/subws
 ```
 
 ### ssl сертификаты (https://github.com/matveynator/sysadminscripts/wiki/Free-SSL-Certs): 
