@@ -51,18 +51,20 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
 ```
 
 ### PUSH & PULL server
-используется для audio/video/chat 
-код-подпись для взаимодействия с сервером (PUSH_SECURITY_KEY) генерируется в процессе установки.
-Необходима донастройка nginx https://training.bitrix24.com/support/training/course/?COURSE_ID=178&LESSON_ID=21618
+Используется для audio/video/chat 
+Код-подпись для взаимодействия с сервером (PUSH_SECURITY_KEY) генерируется в процессе установки.
+Необходима донастройка https://training.bitrix24.com/support/training/course/?COURSE_ID=178&LESSON_ID=21618
 ```
-PUB host: http://push-server-pub
-SUB host: http://push-server-sub
 
-Путь для публикации команд сервером:   http://push-server-pub/АДРЕС
-Путь для чтения команд сервером:     http://push-server-sub/АДРЕС 
+Доступ изнутри (от сервера)
+---------------------------
+PUB host: http://push-server-pub/КОМАНДА
+SUB host: http://push-server-sub/КОМАНДА
 
-Путь для публикации команд клиентом:   http://DOMAIN.COM/push-server-pub/АДРЕС
-Путь для чтения команд клиентом:   http://DOMAIN.COM/push-server-sub/АДРЕС
+Доступ снаружи (от клиентов)
+----------------------------
+PUB host:  http://DOMAIN.COM/push-server-pub/КОМАНДА
+SUB host:   http://DOMAIN.COM/push-server-sub/КОМАНДА
 ```
 
 ### ssl сертификаты (https://github.com/matveynator/sysadminscripts/wiki/Free-SSL-Certs): 
