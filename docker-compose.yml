@@ -59,21 +59,6 @@ services:
         networks:
             - bitrix
         restart: always
-    sphinx:
-        build: ./sphinx
-        links:
-          - db
-        depends_on:
-          - db
-          - source
-        volumes_from:
-            - source
-        networks:
-            - bitrix
-        ports:
-            - '0.0.0.0:9306:9306'
-            - '0.0.0.0:9312:9312'
-        restart: unless-stopped
     push-server-sub:
         image: ikarpovich/bitrix-push-server
         links:
@@ -112,11 +97,9 @@ services:
             - /var/log/bitrix24/php:/var/log/php
             - /var/log/bitrix24/db:/var/log/mysql
             - /var/log/bitrix24/memcached:/var/log/memcached
-            - /var/log/bitrix24/sphinxsearch:/var/log/sphinxsearch
             - /var/lib/bitrix24/mysql:/var/lib/mysql
             - /var/lib/bitrix24/memcached:/var/lib/memcached
             - /var/lib/bitrix24/www:/var/www/bitrix
-            - /var/lib/bitrix24/sphinxsearch:/var/lib/sphinxsearch
             - /etc/localtime:/etc/localtime/:ro
             - /root/.acme.sh:/root/.acme.sh:ro
         networks:
