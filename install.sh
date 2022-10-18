@@ -51,13 +51,11 @@ HOSTNAME=`cat /etc/hostname`
 mkdir -p ${BITRIX_LOG_DIR}/nginx
 mkdir -p ${BITRIX_LOG_DIR}/mysql
 mkdir -p ${BITRIX_LOG_DIR}/memcached
-mkdir -p ${BITRIX_LOG_DIR}/sphinxsearch
 
 mkdir -p ${BITRIX_MAIN_DIR}/www
 mkdir -p ${BITRIX_MAIN_DIR}/www/bitrix
 mkdir -p ${BITRIX_MAIN_DIR}/mysql
 mkdir -p ${BITRIX_MAIN_DIR}/memcached
-mkdir -p ${BITRIX_MAIN_DIR}/sphinxsearch
 
 trap 'cleanup' SIGTERM
 trap 'cleanup' EXIT
