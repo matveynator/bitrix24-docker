@@ -43,12 +43,6 @@ curl -L https://raw.githubusercontent.com/matveynator/bitrix24-docker/main/insta
   port: 11211
 ```
 
-### sphinx search:
-используйте для ускорения поиска по документам
-```
-  host: sphinx
-  port: 9306
-```
 
 ### PUSH & PULL server
 Используется для audio/video/chat 
