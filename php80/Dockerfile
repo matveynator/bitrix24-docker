@@ -6,6 +6,7 @@ RUN apt-get update \
     php8.0-memcache \
     php8.0-mbstring \
     php8.0-mysql \
+    php-db \
     php8.0-intl \
     php8.0-interbase \
     php8.0-soap \
