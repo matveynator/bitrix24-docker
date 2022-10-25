@@ -6,6 +6,7 @@ RUN apt-get update \
     php7.4-memcache \
     php7.4-mbstring \
     php7.4-mysql \
+    php-db \
     php7.4-intl \
     php7.4-interbase \
     php7.4-soap \
